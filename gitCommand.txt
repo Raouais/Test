@@ -1,0 +1,80 @@
+-----------------Configurations------------------
+ git config --global user.email "gustavoeraissa@hotmail.com"
+ git config --global user.name "gustavoe"
+ git config --global color.ui true
+ git config --list => voir la configuration
+
+
+ git status => statut
+
+// ajouter au staging
+ git add fichier -m "commentaire
+ git add --all // prend en compte les fichiers supprimés
+ git add .// add tout sauf les fichier supprimés
+ git add "*.html"
+// envoyer au serveur
+ git commit 
+
+///ajoute et commit à la fois
+ git commit -a -m "commentaire"
+
+------------LOG-------------------------
+ git log 
+ git log -n 2 => nombre de commit 
+ git log --oneline
+ git log -p readme.md => git concernant un fichier
+ git log -n 1 -p readme.md
+ git log --oneline -n 2
+ git log --graph => montre le graphe des branches
+
+
+-------------DIFFERENCE-------------------
+ git diff
+
+
+------------- ERREUR DE GITIGNORE-----------------
+
+git rm -r --cache .
+git add .
+git commit -m "fixed untrack files"
+
+
+------------- Revenir en arrière --------------------
+
+ git checkout 12354 => mettre le numero du commit 
+ git checkout revient en arrière mais ne permet pas la modification
+ git checkout 454664 fichier.txt permet de modifier un fichier dans le passé
+
+ git revert permet de revenir sur un état d'un commit mais l'historique n'est pas affectée
+
+
+ git reset permet de revenir sur add (staged à unstaged)
+ git reset (numero commit) permet de revenir sur historique précis
+ git reset b63d3e2 supprime l'historire et met en local tout les autres commit réalisés
+ git reset --hard permet de revenir au commit HEAD en supprimant tout ce qui a été fait après
+ git reset HEAD^ --soft soft permet au reset de laisser les modifications en staging
+ git reset HEAD^ --mixed met en local sans apporter de modification
+
+
+
+----------------------------------- LES BRANCHES ----------------------------------
+
+-- créer une branche           : git branch nomDeLaBranche
+-- supprimer une branc         : git branch -d nomDeLaBranche (il faut pas qu'il est de commit en attente)
+-- aller sur la branche        : git checkout nomDeLaBranche ou git switch 
+-- revenir sur le master       : git checkout master
+-- modifier le nom             : git branch -m nouvelleBranche // renouvelle le nom de la branche a laquelle on est
+-- modifier le nom avec casse  : git branch -M nouvelleBranche
+-- ajouter les modifications
+    des branches sur le master : git merge nomDeLaBranche (le merge s'applique sur la branche à laquelle on est)
+                               : git rebase main/master (aligner la branche dans le master)
+--------------  AMEND
+
+-- amend permet de modifié le précédent commit, git commit --amend -m "mon nouveau message"
+
+
+git remote -v //Les dépôts distant au projets
+
+git clone url
+git clone url --depth 2
+
