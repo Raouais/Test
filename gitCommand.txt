@@ -73,7 +73,11 @@ git commit -m "fixed untrack files"
 -- amend permet de modifié le précédent commit, git commit --amend -m "mon nouveau message"
 
 
+
 git remote -v //Les dépôts distant au projets
+git push origin master // préciser le dépôt quand y a plusieurs
+git pull origin master // récupérer les modifications du dépôt
+
 
 git clone url
 git clone url --depth 2
